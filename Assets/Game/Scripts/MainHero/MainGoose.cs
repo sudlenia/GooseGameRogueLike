@@ -21,7 +21,12 @@ public class MainGoose : MonoBehaviour
     public float baseАireRate = 1f;
 
 
-    public List<Weapon> weapons;
+    public Dictionary<int, string> weapons = new Dictionary<int, string>{
+        { 1, "Пистолет" },
+        { 2, "Молоток" },
+        { 3, "Автомат" },
+    };
+
     public Weapon currentWeapon;
 
     private int currentWeaponIndex = 0;
