@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class MainGoose : Character
+public class MainGoose : Entity
 {
     [SerializeField]
     [Tooltip("Здоровье")]
@@ -21,11 +21,7 @@ public class MainGoose : Character
     public float baseАireRate = 1f;
 
 
-    public Dictionary<int, string> weapons = new Dictionary<int, string>{
-        { 1, "Пистолет" },
-        { 2, "Молоток" },
-        { 3, "Автомат" },
-    };
+    public List<Weapon> weapons;
 
     public Weapon currentWeapon;
 

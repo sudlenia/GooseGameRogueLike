@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
-    public void GetDamage(float amount)
+    public void GetDamage(float amount, float health)
     {
         health -= amount;
         if (health <= 0)
@@ -12,4 +12,6 @@ public abstract class Character : MonoBehaviour
     }
 
     public virtual void Die()
+    {
+    }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Enemy : Character
+public abstract class Enemy : Entity
 {
     [SerializeField]
     [Tooltip("Çהמנמגüו")]
@@ -35,7 +35,7 @@ public abstract class Enemy : Character
         }
     }
 
-    private virtual void Die()
+    public override void Die()
     {
         for (int i = 0; i < featherDropAmount; i++)
         {
@@ -54,7 +54,7 @@ public abstract class Enemy : Character
             MainGoose goose = other.GetComponent<MainGoose>();
             if (goose != null)
             {
-                goose.TakeDamage(damage + (damage*damageIncrease));
+                goose.GetDamage(damage + (damage*damageIncrease), health);
             }
         }
     }
