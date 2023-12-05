@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    public void GetDamage(float amount, float health)
+    public virtual void GetDamage(float amount, float health)
     {
         health -= amount;
         if (health <= 0)
@@ -11,7 +11,5 @@ public abstract class Entity : MonoBehaviour
         }
     }
 
-    public virtual void Die()
-    {
-    }
+    public abstract void Die();
 }
