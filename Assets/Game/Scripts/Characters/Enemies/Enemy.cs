@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : Character
 {
     [SerializeField]
     [Tooltip("Çהמנמגüו")]
@@ -35,7 +35,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    private virtual void Die()
     {
         for (int i = 0; i < featherDropAmount; i++)
         {

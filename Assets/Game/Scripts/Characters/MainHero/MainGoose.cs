@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class MainGoose : MonoBehaviour
+public class MainGoose : Character
 {
     [SerializeField]
     [Tooltip("Здоровье")]
@@ -79,15 +79,9 @@ public class MainGoose : MonoBehaviour
         // Логика передвижения
     }
 
-    //Получение урона
-    public void TakeDamage(float amount)
+    public virtual void Die()
     {
-        health -= amount;
-        if (health <= 0)
-        {
-            //Логика смерти
-            //Die();
-        }
+        // переход на главный экран
     }
 
     //Смена оружия
