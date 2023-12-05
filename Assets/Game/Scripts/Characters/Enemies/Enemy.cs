@@ -26,14 +26,6 @@ public abstract class Enemy : Entity
     [Tooltip("Количество выпадающих перьев")]
     public int featherDropAmount = 1;
 
-    public void TakeDamage(float amount)
-    {
-        health -= amount;
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
 
     public override void Die()
     {

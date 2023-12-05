@@ -48,10 +48,7 @@ public class MainGoose : Entity
     private void Start()
     {
         feathersToUp = feathersRequired[0];
-        weapons = new List<Weapon>
-        {
-            new Pistol()
-        };
+        
 
         currentWeapon = weapons[currentWeaponIndex];
     }
@@ -75,7 +72,7 @@ public class MainGoose : Entity
         // Логика передвижения
     }
 
-    public virtual void Die()
+    public override void Die()
     {
         // переход на главный экран
     }
@@ -101,24 +98,26 @@ public class MainGoose : Entity
         // Если гусь сталкивается с пером, то собирается
         if (other.CompareTag("Feather"))
         {
-            Feather feather = other.GetComponent<Feather>();
-            if (feather != null)
-            {
-                feather.CollectFeather();
-                if (experience == feathersToUp && level != 10)
-                {
-                    feathersToUp = feathersRequired[level-1];
-                    level++;
-                    experience = 0;
-                    if (levelBonuses.TryGetValue(level, out string bonus))
-                    {
-                        LevelUp(bonus);
-                    }
-                }
-            }
+            CollectFeather();
+            Destroy(other.gameObject);
         }
     }
 
+
+    private void CollectFeather()
+    {
+        experience++;
+        if (experience == feathersToUp && level != 10)
+        {
+            feathersToUp = feathersRequired[level - 1];
+            level++;
+            experience = 0;
+            if (levelBonuses.TryGetValue(level, out string bonus))
+            {
+                LevelUp(bonus);
+            }
+        }
+    }
 
     public void LevelUp(string bonus)
     {
