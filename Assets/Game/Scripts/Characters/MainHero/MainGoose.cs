@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class MainGoose : Entity
 {
@@ -74,7 +75,7 @@ public class MainGoose : Entity
 
     public override void Die()
     {
-        // переход на главный экран
+        SceneManager.LoadScene(0);
     }
 
     //Смена оружия
