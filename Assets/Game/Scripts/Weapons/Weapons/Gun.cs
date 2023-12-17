@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public Transform shotPoint;
 
-    private GameObject closestEnemy;
+    private GameObject closestEnemy = null;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -22,19 +22,22 @@ public class Gun : MonoBehaviour
     void Update()
     {
         closestEnemy = findClosestEnemy();
-        
-        Vector3 difference = closestEnemy.transform.position - transform.position;
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if (timeBtwShots <= 0)
+        if (closestEnemy != null)
         {
-            Instantiate(bullet, shotPoint.position, transform.rotation);
-            timeBtwShots = startTimeBtwShots;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
+            Vector3 difference = closestEnemy.transform.position - transform.position;
+            float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+
+            if (timeBtwShots <= 0)
+            {
+                Instantiate(bullet, shotPoint.position, transform.rotation);
+                timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
         }
     }
 
