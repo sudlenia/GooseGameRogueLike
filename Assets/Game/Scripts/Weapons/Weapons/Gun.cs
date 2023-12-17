@@ -14,11 +14,6 @@ public class Gun : MonoBehaviour
     private float timeBtwShots;
     public float startTimeBtwShots;
     
-    void Start()
-    {
-    }
-
-    
     void Update()
     {
         closestEnemy = findClosestEnemy();

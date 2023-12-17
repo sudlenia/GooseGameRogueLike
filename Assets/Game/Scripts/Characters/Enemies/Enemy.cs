@@ -38,6 +38,13 @@ public abstract class Enemy : Entity
         Destroy(gameObject);
     }
 
+    public void GetDamage(float amount)
+    {
+        health -= amount;
+        
+        if (health <= 0) Die();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // ≈сли враг сталкиваетс€ с игроком, наносим урон
@@ -46,7 +53,7 @@ public abstract class Enemy : Entity
             MainGoose goose = other.GetComponent<MainGoose>();
             if (goose != null)
             {
-                goose.GetDamage(damage + (damage*damageIncrease), health);
+                goose.GetDamage(damage + (damage*damageIncrease));
             }
         }
     }

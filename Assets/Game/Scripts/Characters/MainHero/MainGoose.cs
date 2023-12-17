@@ -130,6 +130,12 @@ public class MainGoose : Entity
         }
     }
 
+    public void GetDamage(float amount)
+    {
+        health -= amount;
+        DataHolder.stats[0] -= amount;
+        if (health <= 0) Die();
+    }
 
     private void CollectFeather()
     {
