@@ -7,13 +7,17 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float lifetime;
     public float distance;
-    public int damage;
+    public float damage;
     public LayerMask whatIsSolid;
+
+    public MainGoose goose;
 
     // Start is called before the first frame update
     void Start()
     {
         Invoke("DestroyBullet", lifetime);
+        speed += goose.base¿ireRate;
+        damage += goose.baseDamage;
     }
 
     // Update is called once per frame

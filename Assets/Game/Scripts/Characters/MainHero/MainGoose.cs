@@ -22,9 +22,9 @@ public class MainGoose : Entity
     public float baseÀireRate = 1f;
 
 
-    public List<Weapon> weapons;
+    public List<GameObject> weapons;
 
-    public Weapon currentWeapon;
+    public GameObject currentWeapon;
 
     private int currentWeaponIndex = 0;
 
@@ -46,6 +46,28 @@ public class MainGoose : Entity
         { 10, "Óğîí" },
     };
 
+    private void Awake()
+    {
+        if (DataHolder.stats == null)
+        {
+            DataHolder.stats = new List<float>() 
+            { health, level, experience,
+            speed, baseDamage, baseÀireRate};
+        }
+        if(DataHolder.weapons == null)
+        {
+            DataHolder.weapons = weapons;
+        }
+
+        health = DataHolder.stats[0];
+        level = (int)DataHolder.stats[1];
+        experience = (int)DataHolder.stats[2];
+        speed = DataHolder.stats[3];
+        baseDamage = DataHolder.stats[4];
+        baseÀireRate = DataHolder.stats[5];
+
+        weapons = DataHolder.weapons;
+    }
     private void Start()
     {
         feathersToUp = feathersRequired[0];
@@ -90,7 +112,11 @@ public class MainGoose : Entity
             currentWeaponIndex = 0;
         }
 
+        currentWeapon.SetActive(false);
+
         currentWeapon = weapons[currentWeaponIndex];
+
+        currentWeapon.SetActive(true);
     }
 
     //Ñáîğ ïåğüåâ
@@ -108,11 +134,18 @@ public class MainGoose : Entity
     private void CollectFeather()
     {
         experience++;
+        DataHolder.stats[2]++;
+
         if (experience == feathersToUp && level != 10)
         {
             feathersToUp = feathersRequired[level - 1];
+
             level++;
+            DataHolder.stats[1]++;
+
             experience = 0;
+            DataHolder.stats[2] = 0;
+
             if (levelBonuses.TryGetValue(level, out string bonus))
             {
                 LevelUp(bonus);
@@ -126,12 +159,15 @@ public class MainGoose : Entity
         {
             case "Óğîí":
                 baseDamage += baseDamage * 0.1f;
+                DataHolder.stats[4]++;
                 break;
             case "Ñêîğîñòü ñòğåëüáû":
                 baseÀireRate += baseÀireRate * 0.1f;
+                DataHolder.stats[5]++;
                 break;
             case "Ñêîğîñòü ïåğåäâèæåíèÿ":
                 speed += speed * 0.1f;
+                DataHolder.stats[3]++;
                 break;
             case "Ìîëîòîê":
                 //Äîáàâèòü ñïàâí ìîëîòêà
@@ -144,4 +180,11 @@ public class MainGoose : Entity
                 break;
         }
     }
+}
+
+public static class DataHolder
+{
+    public static List<float> stats;
+
+    public static List<GameObject> weapons;
 }
