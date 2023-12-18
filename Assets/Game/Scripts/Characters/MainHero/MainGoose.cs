@@ -5,22 +5,28 @@ using UnityEngine.SceneManagement;
 public class MainGoose : Entity
 {
     [SerializeField]
-    [Tooltip("Здоровье")]
+    [Tooltip("Health")]
     public float health = 100;
     [SerializeField]
-    [Tooltip("Текущий уровень")]
+    [Tooltip("Level")]
     public int level = 1;
     [SerializeField]
-    [Tooltip("Количество перьев")]
+    [Tooltip("Feathers")]
     public int experience = 0;
     [SerializeField]
-    [Tooltip("Скорость передвижения")]
+    [Tooltip("Speed")]
     public float speed = 1f;
-    [Tooltip("Базовый урон")]
+    [Tooltip("Damage")]
     public float baseDamage = 1f;
-    [Tooltip("Базовая скорость стрельбы")]
-    public float baseАireRate = 1f;
+    [Tooltip("Rate of fire")]
+    public float baseAireRate = 1f;
 
+    private Vector2 direction;
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    bool facingLeft = true;
+    private Animator animX;
+    private Animator animY;
 
     public List<GameObject> weapons;
 
@@ -29,32 +35,31 @@ public class MainGoose : Entity
     private int currentWeaponIndex = 0;
 
     private int[] feathersRequired = { 10, 15, 25, 40, 50, 50, 60, 75, 100 };
-    [Tooltip("Количество перьев для следующего уровня")]
+    [Tooltip("Feathers needed")]
     public int feathersToUp;
 
-    // Словарь для хранения бонусов для каждого уровня
     private Dictionary<int, string> levelBonuses = new Dictionary<int, string>
     {
-        { 2, "Урон" },
-        { 3, "Скорость стрельбы" },
-        { 4, "Молоток" },
-        { 5, "Скорость передвижения" },
-        { 6, "Урон" },
-        { 7, "Автомат" },
-        { 8, "Скорость стрельбы" },
-        { 9, "Урон" },
-        { 10, "Урон" },
+        { 2, "Damage" },
+        { 3, "Rate of fire" },
+        { 4, "Hammer" },
+        { 5, "Speed" },
+        { 6, "Damage" },
+        { 7, "Machine gun" },
+        { 8, "Rate of fire" },
+        { 9, "Damage" },
+        { 10, "Damage" },
     };
 
     private void Awake()
     {
         if (DataHolder.stats == null)
         {
-            DataHolder.stats = new List<float>() 
+            DataHolder.stats = new List<float>()
             { health, level, experience,
-            speed, baseDamage, baseАireRate};
+            speed, baseDamage, baseAireRate};
         }
-        if(DataHolder.weapons == null)
+        if (DataHolder.weapons == null)
         {
             DataHolder.weapons = weapons;
         }
@@ -64,49 +69,64 @@ public class MainGoose : Entity
         experience = (int)DataHolder.stats[2];
         speed = DataHolder.stats[3];
         baseDamage = DataHolder.stats[4];
-        baseАireRate = DataHolder.stats[5];
+        baseAireRate = DataHolder.stats[5];
 
         weapons = DataHolder.weapons;
     }
     private void Start()
     {
         feathersToUp = feathersRequired[0];
-        
 
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        animX = GetComponent<Animator>();
+        animY = GetComponent<Animator>();
         currentWeapon = weapons[currentWeaponIndex];
     }
 
     private void Update()
     {
-        // Метод передвижения с использованием стика
-        Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        // if (Input.GetButtonDown("SwitchWeapon"))
+        // {
+        //     SwitchWeapon();
+        // }
+    }
 
+    private void FixedUpdate() {
+        Move();
+    }
 
-        // Переключение оружия (Надо создать кнопку чтобы работало в частности - SwitchWeapon)
-        if (Input.GetButtonDown("SwitchWeapon"))
-        {
-            SwitchWeapon();
+    private void Move()
+    {
+        direction.x = Input.GetAxis("Horizontal");
+        direction.y = Input.GetAxis("Vertical");
+        animX.SetFloat("moveX", Mathf.Abs(direction.x));
+        animY.SetFloat("moveY", Mathf.Abs(direction.y));
+        rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+        if (facingLeft == false && direction.x < 0){
+            Flip();
+        } else if (facingLeft == true && direction.x > 0) {
+            Flip();
         }
     }
 
-    //Передвижение
-    private void Move(float horizontal, float vertical)
-    {
-        // Логика передвижения
+    private void Flip() {
+        facingLeft = !facingLeft;
+        Vector2 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
+
 
     public override void Die()
     {
         SceneManager.LoadScene(0);
     }
 
-    //Смена оружия
     public void SwitchWeapon()
     {
-        // следующее оружие по списку
         currentWeaponIndex++;
 
-        // Если выходим за пределы списка, возвращаемся к первому оружию
         if (currentWeaponIndex >= weapons.Count)
         {
             currentWeaponIndex = 0;
@@ -119,10 +139,8 @@ public class MainGoose : Entity
         currentWeapon.SetActive(true);
     }
 
-    //Сбор перьев
     private void OnTriggerEnter(Collider other)
     {
-        // Если гусь сталкивается с пером, то собирается
         if (other.CompareTag("Feather"))
         {
             CollectFeather();
@@ -157,26 +175,26 @@ public class MainGoose : Entity
     {
         switch (bonus)
         {
-            case "Урон":
+            case "Damage":
                 baseDamage += baseDamage * 0.1f;
                 DataHolder.stats[4]++;
                 break;
-            case "Скорость стрельбы":
-                baseАireRate += baseАireRate * 0.1f;
+            case "Rate of fire":
+                baseAireRate += baseAireRate * 0.1f;
                 DataHolder.stats[5]++;
                 break;
-            case "Скорость передвижения":
+            case "Speed":
                 speed += speed * 0.1f;
                 DataHolder.stats[3]++;
                 break;
-            case "Молоток":
-                //Добавить спавн молотка
+            case "Hammer":
+                //Add spawn hammer
                 break;
-            case "Автомат":
-                //Добавить спавн автомата 
+            case "Machine gun":
+                //Add spawn machine gun
                 break;
             default:
-                Debug.LogWarning($"Ошибка");
+                Debug.LogWarning($"Error");
                 break;
         }
     }

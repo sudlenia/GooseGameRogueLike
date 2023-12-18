@@ -3,27 +3,27 @@ using UnityEngine;
 public abstract class Enemy : Entity
 {
     [SerializeField]
-    [Tooltip("Здоровье")]
+    [Tooltip("Health")]
     public float health;
 
     [SerializeField]
-    [Tooltip("Урон")]
+    [Tooltip("Damage")]
     public float damage;
 
     [SerializeField]
-    [Tooltip("Скорость передвежения")]
+    [Tooltip("Speed")]
     public float speed;
 
     [SerializeField]
-    [Tooltip("Увеличение урона с течением волны")]
+    [Tooltip("Damage boost")]
     public float damageIncrease = 0.1f;
 
 
     [SerializeField]
-    [Tooltip("Префаб пера")]
+    [Tooltip("Prefab feather")]
     private GameObject featherPrefab;
     [SerializeField]
-    [Tooltip("Количество выпадающих перьев")]
+    [Tooltip("Count feather drop")]
     public int featherDropAmount = 1;
 
 
@@ -34,13 +34,11 @@ public abstract class Enemy : Entity
             Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
             Instantiate(featherPrefab, transform.position + randomOffset, Quaternion.identity);
         }
-        // Логика смерти врага
         Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Если враг сталкивается с игроком, наносим урон
         if (other.CompareTag("MainGoose"))
         {
             MainGoose goose = other.GetComponent<MainGoose>();
