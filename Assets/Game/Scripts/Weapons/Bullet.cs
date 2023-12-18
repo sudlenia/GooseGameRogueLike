@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         Invoke("DestroyBullet", lifetime);
-        speed += goose.base¿ireRate;
+        speed += goose.baseAireRate;
         damage += goose.baseDamage;
     }
 
