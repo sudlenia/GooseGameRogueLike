@@ -25,6 +25,8 @@ public class MainGoose : Entity
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     bool facingLeft = true;
+    private Animator animX;
+    private Animator animY;
 
     public List<GameObject> weapons;
 
@@ -77,7 +79,8 @@ public class MainGoose : Entity
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-
+        animX = GetComponent<Animator>();
+        animY = GetComponent<Animator>();
         currentWeapon = weapons[currentWeaponIndex];
     }
 
@@ -97,13 +100,14 @@ public class MainGoose : Entity
     {
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
+        animX.SetFloat("moveX", Mathf.Abs(direction.x));
+        animY.SetFloat("moveY", Mathf.Abs(direction.y));
         rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
         if (facingLeft == false && direction.x < 0){
             Flip();
         } else if (facingLeft == true && direction.x > 0) {
             Flip();
         }
-
     }
 
     private void Flip() {
