@@ -36,7 +36,10 @@ public abstract class Enemy : Entity
         }
         // Логика смерти врага
         Destroy(gameObject);
+
     }
+
+    
 
     public void GetDamage(float amount)
     {
