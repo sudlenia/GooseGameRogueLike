@@ -12,7 +12,6 @@ public class Bullet : MonoBehaviour
 
     //public MainGoose goose;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("DestroyBullet", lifetime);
@@ -20,7 +19,6 @@ public class Bullet : MonoBehaviour
         //damage += goose.baseDamage;
     }
 
-    // Update is called once per frame
     void Update()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
@@ -28,7 +26,7 @@ public class Bullet : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
-                //hitInfo.collider.GetComponent<Enemy>().Die();
+                hitInfo.collider.GetComponent<Enemy>().GetDamage(damage);
             }
             DestroyBullet();
         }
