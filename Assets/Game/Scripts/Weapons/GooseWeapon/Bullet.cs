@@ -10,17 +10,16 @@ public class Bullet : MonoBehaviour
     public float damage;
     public LayerMask whatIsSolid;
 
-    public MainGoose goose;
+    //public MainGoose goose;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("DestroyBullet", lifetime);
-        speed += goose.baseAireRate;
-        damage += goose.baseDamage;
+
+        //speed += goose.base�ireRate;
+        //damage += goose.baseDamage;
     }
 
-    // Update is called once per frame
     void Update()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
@@ -28,7 +27,7 @@ public class Bullet : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
-                //hitInfo.collider.GetComponent<Enemy>().Die();
+                hitInfo.collider.GetComponent<Enemy>().GetDamage(damage);
             }
             DestroyBullet();
         }
