@@ -34,10 +34,20 @@ public abstract class Enemy : Entity
     {
         for (int i = 0; i < featherDropAmount; i++)
         {
-            Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+            Vector3 randomOffset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0f);
             Instantiate(featherPrefab, transform.position + randomOffset, Quaternion.identity);
         }
         Destroy(gameObject);
+
+    }
+
+    
+
+    public void GetDamage(float amount)
+    {
+        health -= amount;
+        
+        if (health <= 0) Die();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,7 +57,7 @@ public abstract class Enemy : Entity
             MainGoose goose = other.GetComponent<MainGoose>();
             if (goose != null)
             {
-                goose.GetDamage(damage + (damage*damageIncrease), health);
+                goose.GetDamage(damage + (damage*damageIncrease));
             }
         }
     }

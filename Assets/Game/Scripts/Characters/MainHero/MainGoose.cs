@@ -112,9 +112,7 @@ public class MainGoose : Entity
 
     private void Flip() {
         facingLeft = !facingLeft;
-        Vector2 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+        sr.flipX = !sr.flipX;
     }
 
 
@@ -139,7 +137,7 @@ public class MainGoose : Entity
         currentWeapon.SetActive(true);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Feather"))
         {
@@ -148,6 +146,12 @@ public class MainGoose : Entity
         }
     }
 
+    public void GetDamage(float amount)
+    {
+        health -= amount;
+        DataHolder.stats[0] -= amount;
+        if (health <= 0) Die();
+    }
 
     public void CollectFeather()
     {
