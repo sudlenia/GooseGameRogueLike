@@ -149,7 +149,7 @@ public class MainGoose : Entity
     }
 
 
-    private void CollectFeather()
+    public void CollectFeather()
     {
         experience++;
         DataHolder.stats[2]++;
