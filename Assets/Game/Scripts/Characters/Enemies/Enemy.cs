@@ -31,7 +31,7 @@ public abstract class Enemy : Entity
     {
         for (int i = 0; i < featherDropAmount; i++)
         {
-            Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+            Vector3 randomOffset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0f);
             Instantiate(featherPrefab, transform.position + randomOffset, Quaternion.identity);
         }
         Destroy(gameObject);
