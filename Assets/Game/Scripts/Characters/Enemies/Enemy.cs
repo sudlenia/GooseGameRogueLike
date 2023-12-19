@@ -18,6 +18,7 @@ public abstract class Enemy : Entity
     [Tooltip("Damage boost")]
     public float damageIncrease = 0.1f;
 
+    public Transform goose;
 
     [SerializeField]
     [Tooltip("Prefab feather")]
@@ -25,6 +26,8 @@ public abstract class Enemy : Entity
     [SerializeField]
     [Tooltip("Count feather drop")]
     public int featherDropAmount = 1;
+
+    public Vector2 anim;
 
 
     public override void Die()
@@ -47,5 +50,17 @@ public abstract class Enemy : Entity
                 goose.GetDamage(damage + (damage*damageIncrease), health);
             }
         }
+    }
+
+    private void Awake()
+    {
+        goose = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, goose.position, speed);
+        anim.x = transform.position.x;
+        anim.y = transform.position.y;
     }
 }
