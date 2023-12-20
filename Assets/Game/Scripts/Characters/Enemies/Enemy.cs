@@ -50,16 +50,21 @@ public abstract class Enemy : Entity
         if (health <= 0) Die();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("MainGoose"))
+        if (collision.CompareTag("Player"))
         {
-            MainGoose goose = other.GetComponent<MainGoose>();
+            MainGoose goose = collision.GetComponent<MainGoose>();
             if (goose != null)
             {
-                goose.GetDamage(damage + (damage*damageIncrease));
+                goose.GetDamage(damage + (damage * damageIncrease));
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 
     private void Awake()
@@ -69,7 +74,7 @@ public abstract class Enemy : Entity
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, goose.position, speed);
+        transform.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.timeScale);
         anim.x = transform.position.x;
         anim.y = transform.position.y;
     }
