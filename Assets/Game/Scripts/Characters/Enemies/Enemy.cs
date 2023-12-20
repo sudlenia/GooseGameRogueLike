@@ -38,7 +38,6 @@ public abstract class Enemy : Entity
             Instantiate(featherPrefab, transform.position + randomOffset, Quaternion.identity);
         }
         Destroy(gameObject);
-
     }
 
     
@@ -60,11 +59,6 @@ public abstract class Enemy : Entity
                 goose.GetDamage(damage + (damage * damageIncrease));
             }
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
     }
 
     private void Awake()

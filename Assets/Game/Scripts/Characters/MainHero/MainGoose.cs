@@ -34,6 +34,10 @@ public class MainGoose : Entity
 
     private int currentWeaponIndex = 0;
 
+    private int countOfOpenWeapons = 2;
+
+    public GameObject MachineGun;
+
     private int[] feathersRequired = { 10, 15, 25, 40, 50, 50, 60, 75, 100 };
     [Tooltip("Feathers needed")]
     public int feathersToUp;
@@ -42,7 +46,7 @@ public class MainGoose : Entity
     {
         { 2, "Damage" },
         { 3, "Rate of fire" },
-        { 4, "Hammer" },
+        { 4, "Speed" },
         { 5, "Speed" },
         { 6, "Damage" },
         { 7, "Machine gun" },
@@ -57,7 +61,8 @@ public class MainGoose : Entity
         {
             DataHolder.stats = new List<float>()
             { health, level, experience,
-            speed, baseDamage, baseAireRate};
+            speed, baseDamage, baseAireRate, currentWeaponIndex};
+
         }
         if (DataHolder.weapons == null)
         {
@@ -70,18 +75,22 @@ public class MainGoose : Entity
         speed = DataHolder.stats[3];
         baseDamage = DataHolder.stats[4];
         baseAireRate = DataHolder.stats[5];
+        currentWeaponIndex = (int)DataHolder.stats[6];
 
         weapons = DataHolder.weapons;
     }
     private void Start()
     {
-        feathersToUp = feathersRequired[0];
+        feathersToUp = feathersRequired[level - 1];
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animX = GetComponent<Animator>();
         animY = GetComponent<Animator>();
+
+        weapons[0].SetActive(false);
         currentWeapon = weapons[currentWeaponIndex];
+        currentWeapon.SetActive(true);
     }
 
     private void Update()
@@ -124,10 +133,12 @@ public class MainGoose : Entity
     public void SwitchWeapon()
     {
         currentWeaponIndex++;
+        DataHolder.stats[6]++;
 
-        if (currentWeaponIndex >= weapons.Count)
+        if (currentWeaponIndex >= countOfOpenWeapons)
         {
             currentWeaponIndex = 0;
+            DataHolder.stats[6] = 0;
         }
 
         currentWeapon.SetActive(false);
@@ -142,6 +153,18 @@ public class MainGoose : Entity
         if (other.CompareTag("Feather"))
         {
             CollectFeather();
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("Weapon"))
+        {
+            countOfOpenWeapons = 3;
+
+            currentWeapon.SetActive(false);
+
+            currentWeapon = weapons[2];
+
+            currentWeapon.SetActive(true);
+
             Destroy(other.gameObject);
         }
     }
@@ -182,21 +205,19 @@ public class MainGoose : Entity
         {
             case "Damage":
                 baseDamage += baseDamage * 0.1f;
-                DataHolder.stats[4]++;
+                DataHolder.stats[4] += baseDamage * 0.1f;
                 break;
             case "Rate of fire":
                 baseAireRate += baseAireRate * 0.1f;
-                DataHolder.stats[5]++;
+                DataHolder.stats[5] += baseAireRate * 0.1f;
                 break;
             case "Speed":
                 speed += speed * 0.1f;
-                DataHolder.stats[3]++;
-                break;
-            case "Hammer":
-                //Add spawn hammer
+                DataHolder.stats[3] += speed * 0.1f;
                 break;
             case "Machine gun":
-                //Add spawn machine gun
+                Vector3 randomOffset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0f);
+                Instantiate(MachineGun, transform.position + randomOffset, Quaternion.identity);
                 break;
             default:
                 Debug.LogWarning($"Error");
