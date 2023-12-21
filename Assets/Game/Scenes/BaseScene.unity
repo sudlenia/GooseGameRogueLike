@@ -1841,6 +1841,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goose
       objectReference: {fileID: 0}
+    - target: {fileID: 6458244613568630245, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458244613568630245, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458244613568630245, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6458244613638097929, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
       propertyPath: m_RootOrder
       value: 2
