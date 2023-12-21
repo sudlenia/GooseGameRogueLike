@@ -68,7 +68,7 @@ public abstract class Enemy : Entity
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.timeScale);
+        transform.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.deltaTime);
         anim.x = transform.position.x;
         anim.y = transform.position.y;
     }

@@ -180,7 +180,6 @@ public class MainGoose : Entity
     {
         experience++;
         DataHolder.stats[2]++;
-        SwitchWeapon();
 
         if (experience == feathersToUp && level != 10)
         {
