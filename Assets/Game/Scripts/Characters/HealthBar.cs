@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using static System.Math;
 
 public class HealthBar : MonoBehaviour
 {
@@ -9,6 +9,6 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        pb.BarValue = Mathf.Round(goose.health);
+        pb.BarValue = (float)Round(Convert.ToDouble(goose.health), 2);
     }
 }

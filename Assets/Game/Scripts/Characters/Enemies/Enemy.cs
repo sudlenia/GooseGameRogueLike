@@ -27,8 +27,16 @@ public abstract class Enemy : Entity
     [Tooltip("Count feather drop")]
     public int featherDropAmount = 1;
 
-    public Vector2 anim;
+    private Animator animX;
+    private Animator animY;
+    private Rigidbody2D rb;
 
+    private void Start()
+    {
+        animX = GetComponent<Animator>();
+        animY = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     public override void Die()
     {
@@ -40,12 +48,12 @@ public abstract class Enemy : Entity
         Destroy(gameObject);
     }
 
-    
+
 
     public void GetDamage(float amount)
     {
         health -= amount;
-        
+
         if (health <= 0) Die();
     }
 
@@ -68,8 +76,8 @@ public abstract class Enemy : Entity
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.deltaTime);
-        anim.x = transform.position.x;
-        anim.y = transform.position.y;
+        rb.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.deltaTime);
+        animX.SetFloat("moveX", Mathf.Abs(rb.position.x));
+        animY.SetFloat("moveY", Mathf.Abs(rb.position.y));
     }
 }
