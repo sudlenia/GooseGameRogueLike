@@ -1144,6 +1144,32 @@ PrefabInstance:
     - {fileID: 789166675264462531, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
     - {fileID: 789166674735030969, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
+--- !u!1 &922228529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3986118216483845155, guid: 9d77c1f8052c68849817a4e44c432e5f, type: 3}
+  m_PrefabInstance: {fileID: 3986118217197396754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &922228535
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922228529}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1017161522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1279,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1067671363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3846889184857776212, guid: 4716d951d4ae693498b8cae28cebf717, type: 3}
+  m_PrefabInstance: {fileID: 3846889183991709463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1067671369
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067671363}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1090010469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,6 +1837,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1626399014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7516293277861844887, guid: 7f2079da4cf217646bba2b05f8214912, type: 3}
+  m_PrefabInstance: {fileID: 7516293277321819825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1626399020
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626399014}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1649310263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 853228364260784997, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
@@ -1829,6 +1907,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1796338263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5950442357876039094, guid: d6f39a472ee58f743a6665dcd3077015, type: 3}
+  m_PrefabInstance: {fileID: 5950442358564876257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1796338269
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796338263}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1809180352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2447,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3846889184857776210, guid: 4716d951d4ae693498b8cae28cebf717, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3846889184857776212, guid: 4716d951d4ae693498b8cae28cebf717, type: 3}
       propertyPath: m_Name
       value: Spider
@@ -2356,6 +2464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3986118216483845153, guid: 9d77c1f8052c68849817a4e44c432e5f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3986118216483845155, guid: 9d77c1f8052c68849817a4e44c432e5f, type: 3}
       propertyPath: m_Name
       value: Soldier
@@ -2574,6 +2686,10 @@ PrefabInstance:
     - target: {fileID: 7516293277861844890, guid: 7f2079da4cf217646bba2b05f8214912, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516293277861844891, guid: 7f2079da4cf217646bba2b05f8214912, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f2079da4cf217646bba2b05f8214912, type: 3}
