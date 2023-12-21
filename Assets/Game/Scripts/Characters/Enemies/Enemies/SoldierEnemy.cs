@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SoldierEnemy : Enemy
 {
-    [SerializeField]
-    [Tooltip("Урон от выстрела")]
-    public float shootDamage;
     //public SoldierEnemy()
     //{
     //    health = 75;
@@ -15,9 +12,12 @@ public class SoldierEnemy : Enemy
     //    speed = 0.8f;
     //    featherDropAmount = 2;
     //}
-
-    public void Fire()
+    public float distance;
+    public override void Move()
     {
-        //Стрельба солдата
+        if(Vector2.Distance(transform.position, goose.transform.position) >= distance)
+        {
+            base.Move();
+        }
     }
 }

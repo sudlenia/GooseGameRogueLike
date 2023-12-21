@@ -66,7 +66,7 @@ public class MainGoose : Entity
         }
         if (DataHolder.weapons == null)
         {
-            DataHolder.weapons = weapons;
+            DataHolder.weapons = new List<GameObject>() { weapons[0], weapons[1], weapons[2] };
         }
 
         health = DataHolder.stats[0];
@@ -105,7 +105,7 @@ public class MainGoose : Entity
         Move();
     }
 
-    private void Move()
+    public override void Move()
     {
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
@@ -128,6 +128,8 @@ public class MainGoose : Entity
     public override void Die()
     {
         SceneManager.LoadScene(0);
+        DataHolder.weapons = null;
+        DataHolder.stats = null;
     }
 
     public void SwitchWeapon()

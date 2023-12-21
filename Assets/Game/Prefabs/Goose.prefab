@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6458244613074873965}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 6458244613336328979}
   - component: {fileID: 6458244613336328989}
   - component: {fileID: 6458244613336328978}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: flamethrower_blue
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 6458244613568630234}
   - component: {fileID: 6458244613568630235}
   - component: {fileID: 6458244613568630232}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Goose
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6458244613659316193}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -349,7 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6458244613691235224}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 6458244614074390193}
   - component: {fileID: 6458244614074390195}
   - component: {fileID: 6458244614074390192}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: flamethrower_blue 2
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 6458244614444904259}
   - component: {fileID: 6458244614444904256}
   - component: {fileID: 6458244614444904257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: flamethrower_blue 1
   m_TagString: Weapon
   m_Icon: {fileID: 0}

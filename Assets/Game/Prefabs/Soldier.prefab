@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1787159555095081362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8447856637422639518}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8447856637422639518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787159555095081362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.84, y: -0.16, z: 0}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_Children: []
+  m_Father: {fileID: 2460373538808193528}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2460373538808193535
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +44,7 @@ GameObject:
   - component: {fileID: 2460373538808193533}
   - component: {fileID: 2460373538808193532}
   - component: {fileID: 2460373538808193529}
+  - component: {fileID: 4119125103453048489}
   m_Layer: 6
   m_Name: Soldier
   m_TagString: Enemy
@@ -31,7 +62,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.019, y: -2.71, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_Children: []
+  m_Children:
+  - {fileID: 8447856637422639518}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,14 +130,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa42426c277a6d4488b568fa96e8703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 75
+  health: 1000
   damage: 5
-  speed: 0.05
+  speed: 0.1
   damageIncrease: 0
   goose: {fileID: 0}
   featherPrefab: {fileID: 8706019890947446234, guid: 02ddcc869fa5a844fa85b77be703c54e, type: 3}
   featherDropAmount: 2
-  shootDamage: 5
+  distance: 0.5
 --- !u!61 &2460373538808193533
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +204,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4119125103453048489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2460373538808193535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0cce3b7d66567b4b8e23931e900c9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 270
+  bullet: {fileID: 4127230161947827399, guid: 1767130cb0f4a8d48980ed944526f94d, type: 3}
+  shotPoint: {fileID: 8447856637422639518}
+  startTimeBtwShots: 0.5

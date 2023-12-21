@@ -76,8 +76,17 @@ public abstract class Enemy : Entity
 
     private void Update()
     {
-        rb.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.deltaTime);
         animX.SetFloat("moveX", Mathf.Abs(rb.position.x));
         animY.SetFloat("moveY", Mathf.Abs(rb.position.y));
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    public override void Move()
+    {
+        rb.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.deltaTime); ;
     }
 }

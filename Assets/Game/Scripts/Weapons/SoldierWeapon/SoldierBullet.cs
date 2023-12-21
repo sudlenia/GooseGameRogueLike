@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class SoldierBullet : MonoBehaviour
 {
     public float speed;
     public float lifetime;
@@ -10,13 +10,9 @@ public class Bullet : MonoBehaviour
     public float damage;
     public LayerMask whatIsSolid;
 
-    public MainGoose goose;
-
     void Start()
     {
         Invoke("DestroyBullet", lifetime);
-        speed += goose.baseAireRate;
-        damage += goose.baseDamage;
     }
 
     void Update()
@@ -24,17 +20,12 @@ public class Bullet : MonoBehaviour
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
         if (hitInfo.collider != null)
         {
-            if (hitInfo.collider.CompareTag("Enemy"))
+            if (hitInfo.collider.CompareTag("Player"))
             {
-                hitInfo.collider.GetComponent<Enemy>().GetDamage(damage);
+                hitInfo.collider.GetComponent<MainGoose>().GetDamage(damage);
             }
-            DestroyBullet();
+            Destroy(gameObject);
         }
         transform.Translate(Vector2.up * speed * Time.deltaTime);
-    }
-
-    void DestroyBullet()
-    {
-        Destroy(gameObject);
     }
 }
