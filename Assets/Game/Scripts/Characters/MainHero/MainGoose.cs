@@ -27,6 +27,7 @@ public class MainGoose : Entity
     bool facingLeft = true;
     private Animator animX;
     private Animator animY;
+    public Joystick joystick;
 
     public List<GameObject> weapons;
 
@@ -107,8 +108,8 @@ public class MainGoose : Entity
 
     public override void Move()
     {
-        direction.x = Input.GetAxis("Horizontal");
-        direction.y = Input.GetAxis("Vertical");
+        direction.x = joystick.Horizontal;
+        direction.y = joystick.Vertical;
         animX.SetFloat("moveX", Mathf.Abs(direction.x));
         animY.SetFloat("moveY", Mathf.Abs(direction.y));
         rb.velocity = new Vector2(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime);
