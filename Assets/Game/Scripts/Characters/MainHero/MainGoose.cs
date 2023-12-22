@@ -112,9 +112,9 @@ public class MainGoose : Entity
         animX.SetFloat("moveX", Mathf.Abs(direction.x));
         animY.SetFloat("moveY", Mathf.Abs(direction.y));
         rb.velocity = new Vector2(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime);
-        if (facingLeft == false && direction.x < 0){
+        if (!facingLeft && direction.x < 0){
             Flip();
-        } else if (facingLeft == true && direction.x > 0) {
+        } else if (facingLeft && direction.x > 0) {
             Flip();
         }
     }

@@ -31,12 +31,16 @@ public abstract class Enemy : Entity
     private Animator animX;
     private Animator animY;
     private Rigidbody2D rb;
+    private bool facingLeft = true;
+    private SpriteRenderer sr;
+
 
     private void Start()
     {
         animX = GetComponent<Animator>();
         animY = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     public override void Die()
@@ -97,6 +101,22 @@ public abstract class Enemy : Entity
 
     public override void Move()
     {
-        rb.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.deltaTime); ;
+        Vector2 direction = (goose.position - transform.position).normalized;
+        rb.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.deltaTime);
+
+        if (!facingLeft && direction.x < 0)
+        {
+            Flip();
+        }
+        else if (facingLeft && direction.x > 0)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        facingLeft = !facingLeft;
+        sr.flipX = !sr.flipX;
     }
 }

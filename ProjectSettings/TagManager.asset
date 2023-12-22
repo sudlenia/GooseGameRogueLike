@@ -44,3 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bear
+    uniqueID: 1522988013
+    locked: 0
+  - name: Gorilla
+    uniqueID: 3134173069
+    locked: 0
+  - name: Spider
+    uniqueID: 3525899079
+    locked: 0
+  - name: Soldier
+    uniqueID: 3298946167
+    locked: 0
