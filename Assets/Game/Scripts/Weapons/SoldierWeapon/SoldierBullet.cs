@@ -24,8 +24,12 @@ public class SoldierBullet : MonoBehaviour
             {
                 hitInfo.collider.GetComponent<MainGoose>().GetDamage(damage);
             }
-            Destroy(gameObject);
+            DestroyBullet();
         }
         transform.Translate(Vector2.up * speed * Time.deltaTime);
+    }
+    void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 }

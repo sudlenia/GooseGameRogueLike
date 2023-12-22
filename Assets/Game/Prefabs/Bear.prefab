@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2488
   damage: 50
-  speed: 0.01
+  speed: 0.1
   damageIncrease: 0
   goose: {fileID: 0}
   featherPrefab: {fileID: 8706019890947446234, guid: 02ddcc869fa5a844fa85b77be703c54e, type: 3}

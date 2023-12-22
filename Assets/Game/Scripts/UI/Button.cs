@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
+    public AudioSource uiAudio;
+    public AudioSource gameAudio;
+
     public GameObject PauseMenu;
     public void NextLevel()
     {
@@ -19,10 +22,14 @@ public class Button : MonoBehaviour
     {
         PauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
+        uiAudio.Pause();
+        gameAudio.Play();
     }
     public void Pause()
     {
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        uiAudio.Play();
+        gameAudio.Pause();
     }
 }

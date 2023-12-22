@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [SerializeField] private AudioSource shoot;
+
     public float offset;
     public GameObject bullet;
     public Transform shotPoint;
@@ -27,6 +29,7 @@ public class Gun : MonoBehaviour
             if (timeBtwShots <= 0)
             {
                 Instantiate(bullet, shotPoint.position, transform.rotation);
+                shoot.Play();
                 timeBtwShots = startTimeBtwShots;
             }
             else

@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4537112307776018627
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4537112307776018626}
-  m_Layer: 6
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4537112307776018626
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4537112307776018627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.84, y: -0.16, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
-  m_Children: []
-  m_Father: {fileID: 4537112307918716804}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4537112307918716803
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,8 +32,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.9331722, y: -3.64561, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_Children:
-  - {fileID: 4537112307776018626}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -132,12 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 940
   damage: 0
-  speed: 0.01
+  speed: 0.2
   damageIncrease: 0
   goose: {fileID: 0}
   featherPrefab: {fileID: 8706019890947446234, guid: 02ddcc869fa5a844fa85b77be703c54e, type: 3}
   featherDropAmount: 2
-  distance: 0
+  distance: 0.5
 --- !u!61 &4537112307918716807
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,5 +187,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 270
   bullet: {fileID: 4127230161947827399, guid: 1767130cb0f4a8d48980ed944526f94d, type: 3}
-  shotPoint: {fileID: 4537112307776018626}
+  shotPoint: {fileID: 4537112307918716804}
   startTimeBtwShots: 0.5

@@ -8,6 +8,7 @@ public class TimerMenu : MonoBehaviour
     public float TimeStart = 6.0f;
     public Text Timer;
     public GameObject TimerPanel;
+    public Button AudioManager;
     void Start()
     {
         Timer.text = TimeStart.ToString();
@@ -24,6 +25,8 @@ public class TimerMenu : MonoBehaviour
         {
             TimerPanel.SetActive(true);
             Time.timeScale = 0f;
+            if (!AudioManager.uiAudio.isPlaying) AudioManager.uiAudio.Play();
+            if (AudioManager.gameAudio.isPlaying) AudioManager.gameAudio.Pause();
         }
     }
 }
