@@ -34,7 +34,6 @@ public abstract class Enemy : Entity
     private bool facingLeft = true;
     private SpriteRenderer sr;
 
-
     private void Start()
     {
         animX = GetComponent<Animator>();
@@ -62,14 +61,6 @@ public abstract class Enemy : Entity
         if (health <= 0) Die();
     }
 
-    private IEnumerator GooseOnAttack(Collider2D goose)
-    {
-        SpriteRenderer sr = goose.GetComponent<SpriteRenderer>();
-        sr.color = new Color(1f, 0.5f, 0.5f);
-        yield return new WaitForSeconds(0.2f);
-        sr.color = new Color(1, 1, 1);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -78,7 +69,6 @@ public abstract class Enemy : Entity
             if (goose != null)
             {
                 goose.GetDamage(damage + (damage * damageIncrease));
-                StartCoroutine(GooseOnAttack(collision));
             }
         }
     }

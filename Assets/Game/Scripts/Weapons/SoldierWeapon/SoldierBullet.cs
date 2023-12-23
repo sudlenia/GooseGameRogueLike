@@ -8,6 +8,7 @@ public class SoldierBullet : MonoBehaviour
     public float lifetime;
     public float distance;
     public float damage;
+    public float damageIncrease;
     public LayerMask whatIsSolid;
 
     void Start()
@@ -22,7 +23,7 @@ public class SoldierBullet : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("Player"))
             {
-                hitInfo.collider.GetComponent<MainGoose>().GetDamage(damage);
+                hitInfo.collider.GetComponent<MainGoose>().GetDamage(damage + damage * damageIncrease);
             }
             DestroyBullet();
         }

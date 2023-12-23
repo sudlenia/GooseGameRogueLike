@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEditor.PackageManager;
 
 public class MainGoose : Entity
 {
@@ -65,10 +67,6 @@ public class MainGoose : Entity
             speed, baseDamage, baseAireRate, currentWeaponIndex};
 
         }
-        if (DataHolder.weapons == null)
-        {
-            DataHolder.weapons = new List<GameObject>() { weapons[0], weapons[1], weapons[2] };
-        }
 
         health = DataHolder.stats[0];
         level = (int)DataHolder.stats[1];
@@ -77,8 +75,6 @@ public class MainGoose : Entity
         baseDamage = DataHolder.stats[4];
         baseAireRate = DataHolder.stats[5];
         currentWeaponIndex = (int)DataHolder.stats[6];
-
-        weapons = DataHolder.weapons;
     }
     private void Start()
     {
@@ -129,7 +125,6 @@ public class MainGoose : Entity
     public override void Die()
     {
         SceneManager.LoadScene(0);
-        DataHolder.weapons = null;
         DataHolder.stats = null;
     }
 
@@ -174,9 +169,16 @@ public class MainGoose : Entity
 
     public void GetDamage(float amount)
     {
+        StartCoroutine(GooseOnAttack());
         health -= amount;
         DataHolder.stats[0] -= amount;
         if (health <= 0) Die();
+    }
+    private IEnumerator GooseOnAttack()
+    {
+        sr.color = new Color(1f, 0.5f, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.color = new Color(1, 1, 1);
     }
 
     public void CollectFeather()
@@ -231,6 +233,4 @@ public class MainGoose : Entity
 public static class DataHolder
 {
     public static List<float> stats;
-
-    public static List<GameObject> weapons;
 }
