@@ -14,6 +14,7 @@ public class SoldierBullet : MonoBehaviour
     void Start()
     {
         Invoke("DestroyBullet", lifetime);
+        damageIncrease = DataHolder.damageIncrease;
     }
 
     void Update()

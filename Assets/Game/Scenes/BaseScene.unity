@@ -1709,6 +1709,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4537112307918716802, guid: 9d77c1f8052c68849817a4e44c432e5f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4537112307918716803, guid: 9d77c1f8052c68849817a4e44c432e5f, type: 3}
       propertyPath: m_Name
       value: Soldier

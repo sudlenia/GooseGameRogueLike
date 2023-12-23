@@ -126,6 +126,7 @@ public class MainGoose : Entity
     {
         SceneManager.LoadScene(0);
         DataHolder.stats = null;
+        DataHolder.damageIncrease = 0;
     }
 
     public void SwitchWeapon()
@@ -233,4 +234,5 @@ public class MainGoose : Entity
 public static class DataHolder
 {
     public static List<float> stats;
+    public static float damageIncrease = 0;
 }

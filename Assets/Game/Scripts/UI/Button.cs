@@ -13,6 +13,7 @@ public class Button : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1.0f;
+        DataHolder.damageIncrease += 0.1f;
     }
     public void ExitGame()
     {

@@ -76,6 +76,7 @@ public abstract class Enemy : Entity
     private void Awake()
     {
         goose = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        damageIncrease = DataHolder.damageIncrease;
     }
 
     private void Update()
