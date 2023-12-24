@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   lifetime: 0.5
-  distance: 0.0025
+  distance: 0.003
   damage: 8
   whatIsSolid:
     serializedVersion: 2
