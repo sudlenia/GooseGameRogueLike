@@ -984,6 +984,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605880494bed835459150d8b36be7e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1784857502 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6480397162481056550, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
+  m_PrefabInstance: {fileID: 6458244613588576581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1809180352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1781,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 206348386}
+    - target: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
+      propertyPath: featherCollect
+      value: 
+      objectReference: {fileID: 1784857502}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
 --- !u!1001 &9070253209076765637

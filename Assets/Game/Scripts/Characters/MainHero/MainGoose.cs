@@ -58,6 +58,8 @@ public class MainGoose : Entity
         { 10, "Damage" },
     };
 
+    public AudioSource featherCollect;
+
     private void Awake()
     {
         if (DataHolder.stats == null)
@@ -151,6 +153,7 @@ public class MainGoose : Entity
     {
         if (other.CompareTag("Feather"))
         {
+            featherCollect.Play();
             CollectFeather();
             Destroy(other.gameObject);
         }
