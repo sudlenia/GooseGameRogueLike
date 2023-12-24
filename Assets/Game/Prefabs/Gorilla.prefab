@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a5da7fe062cb64280080f2d5af6379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 458
-  damage: 25
+  health: 50
+  damage: 8
   speed: 0.1
   damageIncrease: 0
   goose: {fileID: 0}

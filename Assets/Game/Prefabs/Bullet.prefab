@@ -98,7 +98,7 @@ MonoBehaviour:
   speed: 1
   lifetime: 0.5
   distance: 0.00175
-  damage: 10
+  damage: 15
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 64
