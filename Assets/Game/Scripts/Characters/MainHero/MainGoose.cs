@@ -37,9 +37,9 @@ public class MainGoose : Entity
 
     private int currentWeaponIndex = 0;
 
-    private int countOfOpenWeapons = 2;
+    private int countOfOpenWeapons = 1;
 
-    public GameObject MachineGun;
+    public GameObject[] spriteGuns;
 
     private int[] feathersRequired = { 10, 15, 25, 40, 50, 50, 60, 75, 100 };
     [Tooltip("Feathers needed")]
@@ -48,7 +48,7 @@ public class MainGoose : Entity
     private Dictionary<int, string> levelBonuses = new Dictionary<int, string>
     {
         { 2, "Damage" },
-        { 3, "Rate of fire" },
+        { 3, "Machine gun" },
         { 4, "Speed" },
         { 5, "Speed" },
         { 6, "Damage" },
@@ -156,11 +156,11 @@ public class MainGoose : Entity
         }
         if (other.CompareTag("Weapon"))
         {
-            countOfOpenWeapons = 3;
+            countOfOpenWeapons++;
 
             currentWeapon.SetActive(false);
 
-            currentWeapon = weapons[2];
+            currentWeapon = weapons[countOfOpenWeapons - 1];
 
             currentWeapon.SetActive(true);
 
@@ -222,7 +222,7 @@ public class MainGoose : Entity
                 break;
             case "Machine gun":
                 Vector3 randomOffset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0f);
-                Instantiate(MachineGun, transform.position + randomOffset, Quaternion.identity);
+                Instantiate(spriteGuns[countOfOpenWeapons - 1], transform.position + randomOffset, Quaternion.identity);
                 break;
             default:
                 Debug.LogWarning($"Error");

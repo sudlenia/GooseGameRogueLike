@@ -341,7 +341,9 @@ MonoBehaviour:
   - {fileID: 6458244614074390198}
   - {fileID: 6458244614444904262}
   currentWeapon: {fileID: 2884041632854481982, guid: 9b8eee04df996ac46aade6bbb554791b, type: 3}
-  MachineGun: {fileID: 7420760619804053244, guid: 6e50df61f1f90304c873bf6778b86f63, type: 3}
+  spriteGuns:
+  - {fileID: 7420760619804053244, guid: 6e50df61f1f90304c873bf6778b86f63, type: 3}
+  - {fileID: 6065540565970645848, guid: 5b94010cc5aa82d43bd4528206327d2e, type: 3}
   feathersToUp: 10
 --- !u!50 &6458244613568630234
 Rigidbody2D:
