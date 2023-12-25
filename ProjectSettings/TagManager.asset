@@ -56,3 +56,6 @@ TagManager:
   - name: Soldier
     uniqueID: 3298946167
     locked: 0
+  - name: Weapon
+    uniqueID: 2094024001
+    locked: 0
