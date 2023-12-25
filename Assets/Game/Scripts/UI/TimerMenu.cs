@@ -14,10 +14,10 @@ public class TimerMenu : MonoBehaviour
     void Start()
     {
         Timer.text = "Уровень";
-        if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 3)
-            Timer.text += " 1   ";
-        else Timer.text += " 2   ";
-        Timer.text += TimeStart.ToString();
+        if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex <= 3)
+            Timer.text += " 1." + SceneManager.GetActiveScene().buildIndex;
+        else Timer.text += " 2." + (SceneManager.GetActiveScene().buildIndex - 3);
+        Timer.text += "\n\n" + TimeStart.ToString();
         Time.timeScale = 1.0f;
     }
     void Update()
@@ -25,11 +25,11 @@ public class TimerMenu : MonoBehaviour
         if (TimeStart >= 0)
         {
             Timer.text = "Уровень";
-            if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 3)
-                Timer.text += " 1   ";
-            else Timer.text += " 2   ";
+            if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex <= 3)
+                Timer.text += " 1." + SceneManager.GetActiveScene().buildIndex;
+            else Timer.text += " 2." + (SceneManager.GetActiveScene().buildIndex - 3);
             TimeStart -= Time.deltaTime;
-            Timer.text += Mathf.Round(TimeStart).ToString();
+            Timer.text += "\n\n" + Mathf.Round(TimeStart).ToString();
         }
         else EndOfScene();
     }

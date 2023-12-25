@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MainGoose : Entity
 {
@@ -58,6 +59,7 @@ public class MainGoose : Entity
     };
 
     public AudioSource featherCollect;
+    public Text playerLevel;
 
     private void Awake()
     {
@@ -90,7 +92,9 @@ public class MainGoose : Entity
         weapons[0].SetActive(false);
         currentWeapon = weapons[currentWeaponIndex];
         currentWeapon.SetActive(true);
-    }
+
+        playerLevel.text = level.ToString() + " уровень";
+}
 
     private void FixedUpdate() {
         Move();
@@ -191,6 +195,7 @@ public class MainGoose : Entity
 
             level++;
             DataHolder.stats[1]++;
+            playerLevel.text = level.ToString() + " уровень";
 
             experience = 0;
             DataHolder.stats[2] = 0;

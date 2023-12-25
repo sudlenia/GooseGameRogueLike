@@ -1692,6 +1692,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
+      propertyPath: playerLevel
+      value: 
+      objectReference: {fileID: 9070253209076765638}
+    - target: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
       propertyPath: featherCollect
       value: 
       objectReference: {fileID: 1784857502}
@@ -1818,3 +1822,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
+--- !u!114 &9070253209076765638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4992669772886092031, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
+  m_PrefabInstance: {fileID: 9070253209076765637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
