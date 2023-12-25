@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEngine.UI;
 
 public class MainGoose : Entity
 {
@@ -115,7 +114,6 @@ public class MainGoose : Entity
         facingLeft = !facingLeft;
         sr.flipX = !sr.flipX;
     }
-
 
     public override void Die()
     {
@@ -232,10 +230,4 @@ public class MainGoose : Entity
                 break;
         }
     }
-}
-
-public static class DataHolder
-{
-    public static List<float> stats;
-    public static float damageIncrease = 0;
 }

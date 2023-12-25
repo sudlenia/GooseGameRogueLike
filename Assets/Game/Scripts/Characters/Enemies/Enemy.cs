@@ -103,12 +103,6 @@ public abstract class Enemy : Entity
         damageIncrease = DataHolder.damageIncrease;
     }
 
-    private void Update()
-    {
-        animX.SetFloat("moveX", Mathf.Abs(rb.position.x));
-        animY.SetFloat("moveY", Mathf.Abs(rb.position.y));
-    }
-
     private void FixedUpdate()
     {
         Move();
@@ -118,6 +112,8 @@ public abstract class Enemy : Entity
     {
         Vector2 direction = (goose.position - transform.position).normalized;
         rb.position = Vector2.MoveTowards(transform.position, goose.position, speed * Time.deltaTime);
+        animX.SetFloat("moveX", Mathf.Abs(rb.position.x));
+        animY.SetFloat("moveY", Mathf.Abs(rb.position.y));
 
         if (!facingLeft && direction.x < 0)
         {
