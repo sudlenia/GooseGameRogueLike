@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerMenu : MonoBehaviour
 {
@@ -12,15 +13,23 @@ public class TimerMenu : MonoBehaviour
     public BossBearEnemy bear;
     void Start()
     {
-        Timer.text = TimeStart.ToString();
+        Timer.text = "Уровень";
+        if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 3)
+            Timer.text += " 1   ";
+        else Timer.text += " 2   ";
+        Timer.text += TimeStart.ToString();
         Time.timeScale = 1.0f;
     }
     void Update()
     {
         if (TimeStart >= 0)
         {
+            Timer.text = "Уровень";
+            if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 3)
+                Timer.text += " 1   ";
+            else Timer.text += " 2   ";
             TimeStart -= Time.deltaTime;
-            Timer.text = Mathf.Round(TimeStart).ToString();
+            Timer.text += Mathf.Round(TimeStart).ToString();
         }
         else EndOfScene();
     }

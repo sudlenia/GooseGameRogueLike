@@ -11,7 +11,7 @@ public class Button : MonoBehaviour
     public GameObject PauseMenu;
     public void NextLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex + 1 == 3) DataHolder.stats[0] = 100;
+        if (SceneManager.GetActiveScene().buildIndex + 1 == 4) DataHolder.stats[0] = 100;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1.0f;
