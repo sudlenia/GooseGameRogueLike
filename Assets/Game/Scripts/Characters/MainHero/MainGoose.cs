@@ -40,6 +40,7 @@ public class MainGoose : Entity
     private int countOfOpenWeapons = 1;
 
     public GameObject[] spriteGuns;
+    public Transform spawnArea;
 
     private int[] feathersRequired = { 10, 15, 25, 40, 50, 50, 60, 75, 100 };
     [Tooltip("Feathers needed")]
@@ -224,8 +225,12 @@ public class MainGoose : Entity
                 DataHolder.stats[3] += speed * 0.1f;
                 break;
             case "Machine gun":
-                Vector3 randomOffset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0f);
-                Instantiate(spriteGuns[countOfOpenWeapons - 1], transform.position + randomOffset, Quaternion.identity);
+                Vector3 spawnPosition = new Vector3(
+                Random.Range(spawnArea.position.x - spawnArea.localScale.x / 2, spawnArea.position.x + spawnArea.localScale.x / 2),
+                Random.Range(spawnArea.position.y - spawnArea.localScale.y / 2, spawnArea.position.y + spawnArea.localScale.y / 2),
+                0
+            );
+                Instantiate(spriteGuns[countOfOpenWeapons - 1], spawnPosition, Quaternion.identity);
                 break;
             default:
                 Debug.LogWarning($"Error");

@@ -20,6 +20,7 @@ public abstract class Enemy : Entity
     public float damageIncrease = 0.1f;
 
     public Transform goose;
+    private bool playerInside = false;
 
     [SerializeField]
     [Tooltip("Prefab feather")]
@@ -65,11 +66,32 @@ public abstract class Enemy : Entity
     {
         if (collision.CompareTag("Player"))
         {
-            MainGoose goose = collision.GetComponent<MainGoose>();
-            if (goose != null)
+            playerInside = true;
+            StartCoroutine(DelayedDamage(collision));
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerInside = false;
+        }
+    }
+    private System.Collections.IEnumerator DelayedDamage(Collider2D collision)
+    {
+        while (true)
+        {
+            if (playerInside)
             {
-                goose.GetDamage(damage + (damage * damageIncrease));
+                MainGoose goose = collision.GetComponent<MainGoose>();
+                if (goose != null)
+                {
+                    goose.GetDamage(damage + (damage * damageIncrease));
+                }
             }
+            else { break; }
+            yield return new WaitForSeconds(1);
         }
     }
 
