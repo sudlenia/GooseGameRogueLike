@@ -35,4 +35,8 @@ public class Button : MonoBehaviour
         uiAudio.Play();
         gameAudio.Pause();
     }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
