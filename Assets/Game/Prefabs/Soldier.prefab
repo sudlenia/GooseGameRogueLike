@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4537112307918716804}
   - component: {fileID: 4537112307918716805}
   - component: {fileID: 4537112307918716806}
-  - component: {fileID: 4537112307918716807}
   - component: {fileID: 4537112307918716800}
   - component: {fileID: 4537112307918716801}
   - component: {fileID: 4537112307918716802}
+  - component: {fileID: 5886500979895509927}
   m_Layer: 6
   m_Name: Soldier
   m_TagString: Enemy
@@ -107,32 +107,6 @@ MonoBehaviour:
   featherPrefab: {fileID: 8706019890947446234, guid: 02ddcc869fa5a844fa85b77be703c54e, type: 3}
   featherDropAmount: 2
   distance: 0.5
---- !u!61 &4537112307918716807
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4537112307918716803}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.38061118, y: 0.07611275}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
-    newSize: {x: 10.24, y: 10.24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.302938, y: 9.565798}
-  m_EdgeRadius: 0
 --- !u!95 &4537112307918716800
 Animator:
   serializedVersion: 3
@@ -189,3 +163,19 @@ MonoBehaviour:
   bullet: {fileID: 4127230161947827399, guid: 1767130cb0f4a8d48980ed944526f94d, type: 3}
   shotPoint: {fileID: 4537112307918716804}
   startTimeBtwShots: 0.5
+--- !u!70 &5886500979895509927
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4537112307918716803}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.31404197, y: 0.1662597}
+  m_Size: {x: 3.9960802, y: 9.907481}
+  m_Direction: 0

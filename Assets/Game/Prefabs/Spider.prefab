@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5894857464122960459}
   - component: {fileID: 5894857464122960468}
-  - component: {fileID: 5894857464122960469}
   - component: {fileID: 5894857464122960470}
   - component: {fileID: 5894857464122960471}
   - component: {fileID: 5894857464122960464}
+  - component: {fileID: 750165789697838393}
   m_Layer: 6
   m_Name: Spider
   m_TagString: Enemy
@@ -86,32 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!61 &5894857464122960469
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5894857464122960465}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15264678}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
-    newSize: {x: 10.24, y: 10.24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10.24, y: 7.714522}
-  m_EdgeRadius: 0
 --- !u!114 &5894857464122960470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,3 +145,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &750165789697838393
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5894857464122960465}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.369465, y: 0.637313}
+  m_Size: {x: 6.360637, y: 6.360637}
+  m_Direction: 0

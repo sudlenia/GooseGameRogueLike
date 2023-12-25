@@ -241,8 +241,8 @@ GameObject:
   - component: {fileID: 6458244613638097935}
   - component: {fileID: 6458244613568630234}
   - component: {fileID: 6458244613568630235}
-  - component: {fileID: 6458244613568630232}
   - component: {fileID: 6480397162481056550}
+  - component: {fileID: 4167979476518168778}
   m_Layer: 7
   m_Name: Goose
   m_TagString: Player
@@ -334,8 +334,6 @@ MonoBehaviour:
   level: 1
   experience: 0
   speed: 30
-  baseDamage: 5
-  baseAireRate: 1
   joystick: {fileID: 0}
   weapons:
   - {fileID: 6458244613336328976}
@@ -348,6 +346,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   feathersToUp: 10
   featherCollect: {fileID: 6480397162481056550}
+  playerLevel: {fileID: 0}
 --- !u!50 &6458244613568630234
 Rigidbody2D:
   serializedVersion: 4
@@ -388,32 +387,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &6458244613568630232
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6458244613568630233}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.0937552, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
-    newSize: {x: 10.24, y: 10.24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 7.4635506, y: 10.24}
-  m_EdgeRadius: 0
 --- !u!82 &6480397162481056550
 AudioSource:
   m_ObjectHideFlags: 0
@@ -510,6 +483,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &4167979476518168778
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458244613568630233}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2284224, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 10.24}
+    newSize: {x: 10.24, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.591787, y: 10.24}
+  m_EdgeRadius: 0
 --- !u!1 &6458244613659316198
 GameObject:
   m_ObjectHideFlags: 0
