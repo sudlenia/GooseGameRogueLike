@@ -1022,11 +1022,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!82 &1784857502 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6480397162481056550, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
-  m_PrefabInstance: {fileID: 6458244613588576581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1809180352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,8 +1587,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3067693094035379513, guid: 758ff8607939afc418f89a53671cc20b, type: 3}
       propertyPath: initialSpawnInterval
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3067693094035379513, guid: 758ff8607939afc418f89a53671cc20b, type: 3}
+      propertyPath: enemyPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 5894857464122960465, guid: 4716d951d4ae693498b8cae28cebf717, type: 3}
     - target: {fileID: 3067693094035379514, guid: 758ff8607939afc418f89a53671cc20b, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -1679,22 +1678,6 @@ PrefabInstance:
       propertyPath: spawnArea
       value: 
       objectReference: {fileID: 736806128}
-    - target: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
-      propertyPath: baseDamage
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
-      propertyPath: featherCollect
-      value: 
-      objectReference: {fileID: 1784857502}
-    - target: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
-      propertyPath: spriteGuns.Array.data[0]
-      value: 
-      objectReference: {fileID: 6065540565970645848, guid: 5b94010cc5aa82d43bd4528206327d2e, type: 3}
-    - target: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
-      propertyPath: spriteGuns.Array.data[1]
-      value: 
-      objectReference: {fileID: 7420760619804053244, guid: 6e50df61f1f90304c873bf6778b86f63, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}
 --- !u!1001 &9070253209076765637
@@ -1719,6 +1702,10 @@ PrefabInstance:
     - target: {fileID: 5698868562795164169, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
       propertyPath: m_Name
       value: Canvas 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761256345997924551, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
+      propertyPath: TimeStart
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 9070253208375660474, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
       propertyPath: bear
@@ -1806,6 +1793,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9070253208798786660, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072078684196064891, guid: 577c22555968c63488fab7d395b3d5f6, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

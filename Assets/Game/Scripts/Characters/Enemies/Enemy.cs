@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public abstract class Enemy : Entity
 {
@@ -19,6 +20,7 @@ public abstract class Enemy : Entity
     [Tooltip("Damage boost")]
     public float damageIncrease = 0.1f;
 
+    [HideInInspector]
     public Transform goose;
     private bool playerInside = false;
 

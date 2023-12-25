@@ -96,10 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  lifetime: 0.5
-  distance: 0.003
-  damage: 8
+  lifetime: 0.1
+  distance: 0.001
+  damage: 10
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 64
-  goose: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}

@@ -11,4 +11,5 @@ public class BossBearEnemy : Enemy
     //    speed = 0.75f;
     //    featherDropAmount = 0;
     //}
+    
 }

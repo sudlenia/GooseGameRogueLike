@@ -95,11 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f55fdcc04a37943b8ecdb2e22f1059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifetime: 0.5
-  distance: 0.002
-  damage: 8
+  speed: 0.6
+  lifetime: 0.2
+  distance: 0.001
+  damage: 20
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 64
-  goose: {fileID: 6458244613638097935, guid: f3a68b8f213567549beaf18dcb7ecbc9, type: 3}

@@ -9,6 +9,7 @@ public class TimerMenu : MonoBehaviour
     public Text Timer;
     public GameObject TimerPanel;
     public Button AudioManager;
+    public BossBearEnemy bear;
     void Start()
     {
         Timer.text = TimeStart.ToString();
@@ -21,12 +22,13 @@ public class TimerMenu : MonoBehaviour
             TimeStart -= Time.deltaTime;
             Timer.text = Mathf.Round(TimeStart).ToString();
         }
-        else
-        {
-            TimerPanel.SetActive(true);
-            Time.timeScale = 0f;
-            if (!AudioManager.uiAudio.isPlaying) AudioManager.uiAudio.Play();
-            if (AudioManager.gameAudio.isPlaying) AudioManager.gameAudio.Pause();
-        }
+        else EndOfScene();
+    }
+    public void EndOfScene()
+    {
+        TimerPanel.SetActive(true);
+        Time.timeScale = 0f;
+        if (!AudioManager.uiAudio.isPlaying) AudioManager.uiAudio.Play();
+        if (AudioManager.gameAudio.isPlaying) AudioManager.gameAudio.Pause();
     }
 }

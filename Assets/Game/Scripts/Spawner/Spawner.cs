@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;  
     public Transform spawnArea;        
-    public float initialSpawnInterval = 2f;  
+    public float initialSpawnInterval = 5f;  
     public float intervalChangeTime = 10f;   
     public float minSpawnInterval = 0.5f;     
 

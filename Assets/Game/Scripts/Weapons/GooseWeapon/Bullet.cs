@@ -10,12 +10,11 @@ public class Bullet : MonoBehaviour
     public float damage;
     public LayerMask whatIsSolid;
 
-    public MainGoose goose;
-
     void Start()
     {
         Invoke("DestroyBullet", lifetime);
-        damage += goose.baseDamage;
+        damage += DataHolder.stats[4];
+        speed += DataHolder.stats[5];
     }
 
     void Update()

@@ -1594,6 +1594,14 @@ PrefabInstance:
       propertyPath: initialSpawnInterval
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3067693094035379513, guid: 758ff8607939afc418f89a53671cc20b, type: 3}
+      propertyPath: enemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 4537112307918716803, guid: 9d77c1f8052c68849817a4e44c432e5f, type: 3}
+    - target: {fileID: 3067693094035379513, guid: 758ff8607939afc418f89a53671cc20b, type: 3}
+      propertyPath: enemyPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 2052685767575159049, guid: 7f2079da4cf217646bba2b05f8214912, type: 3}
     - target: {fileID: 3067693094035379514, guid: 758ff8607939afc418f89a53671cc20b, type: 3}
       propertyPath: m_Name
       value: Spawner

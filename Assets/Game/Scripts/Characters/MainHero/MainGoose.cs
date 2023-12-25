@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEditor.PackageManager;
 
 public class MainGoose : Entity
 {
@@ -18,10 +17,9 @@ public class MainGoose : Entity
     [SerializeField]
     [Tooltip("Speed")]
     public float speed = 1f;
-    [Tooltip("Damage")]
-    public float baseDamage = 1f;
-    [Tooltip("Rate of fire")]
-    public float baseAireRate = 1f;
+
+    private float baseDamage = 5f;
+    private float baseAireRate = 3f;
 
     private Vector2 direction;
     private Rigidbody2D rb;
@@ -67,7 +65,7 @@ public class MainGoose : Entity
         {
             DataHolder.stats = new List<float>()
             { health, level, experience,
-            speed, baseDamage, baseAireRate, currentWeaponIndex};
+            speed, baseDamage, baseAireRate, currentWeaponIndex, countOfOpenWeapons};
 
         }
 
@@ -78,6 +76,7 @@ public class MainGoose : Entity
         baseDamage = DataHolder.stats[4];
         baseAireRate = DataHolder.stats[5];
         currentWeaponIndex = (int)DataHolder.stats[6];
+        countOfOpenWeapons = (int)DataHolder.stats[7];
     }
     private void Start()
     {
@@ -91,14 +90,6 @@ public class MainGoose : Entity
         weapons[0].SetActive(false);
         currentWeapon = weapons[currentWeaponIndex];
         currentWeapon.SetActive(true);
-    }
-
-    private void Update()
-    {
-        // if (Input.GetButtonDown("SwitchWeapon"))
-        // {
-        //     SwitchWeapon();
-        // }
     }
 
     private void FixedUpdate() {
@@ -161,6 +152,9 @@ public class MainGoose : Entity
         if (other.CompareTag("Weapon"))
         {
             countOfOpenWeapons++;
+            DataHolder.stats[7]++;
+            currentWeaponIndex++;
+            DataHolder.stats[6]++;
 
             currentWeapon.SetActive(false);
 
