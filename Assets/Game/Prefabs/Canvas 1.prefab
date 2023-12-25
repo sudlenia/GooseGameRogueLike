@@ -2515,7 +2515,7 @@ GameObject:
   - component: {fileID: 5987541212966458297}
   - component: {fileID: 7311116883609696638}
   - component: {fileID: 4992669772886092031}
-  - component: {fileID: 6139914432344137701}
+  - component: {fileID: 2734921849437105719}
   m_Layer: 5
   m_Name: PlayerLevel
   m_TagString: Untagged
@@ -2586,7 +2586,7 @@ MonoBehaviour:
   m_Text: 'Hello
 
 '
---- !u!114 &6139914432344137701
+--- !u!114 &2734921849437105719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2595,9 +2595,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9161388781604928533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b41976fb58c64647ac96d5df3dd3cf7, type: 3}
+  m_Script: {fileID: 11500000, guid: fb5a2070f3d6f4b408dff17fef5508e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: {fileID: 4992669772886092031}
 --- !u!1001 &9070253208935328661
 PrefabInstance:
   m_ObjectHideFlags: 0
