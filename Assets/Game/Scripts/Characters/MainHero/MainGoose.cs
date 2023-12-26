@@ -90,9 +90,10 @@ public class MainGoose : Entity
         weapons[0].SetActive(false);
         currentWeapon = weapons[currentWeaponIndex];
         currentWeapon.SetActive(true);
-}
+    }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         Move();
     }
 
@@ -103,14 +104,18 @@ public class MainGoose : Entity
         animX.SetFloat("moveX", Mathf.Abs(direction.x));
         animY.SetFloat("moveY", Mathf.Abs(direction.y));
         rb.velocity = new Vector2(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime);
-        if (!facingLeft && direction.x < 0){
+        if (!facingLeft && direction.x < 0)
+        {
             Flip();
-        } else if (facingLeft && direction.x > 0) {
+        }
+        else if (facingLeft && direction.x > 0)
+        {
             Flip();
         }
     }
 
-    private void Flip() {
+    private void Flip()
+    {
         facingLeft = !facingLeft;
         sr.flipX = !sr.flipX;
     }
@@ -184,19 +189,22 @@ public class MainGoose : Entity
         experience++;
         DataHolder.stats[2]++;
 
-        if (experience == feathersToUp && level != 10)
+        if (experience == feathersToUp && level < 10)
         {
             level++;
             DataHolder.stats[1]++;
 
-            feathersToUp = feathersRequired[level - 1];
-
-            experience = 0;
-            DataHolder.stats[2] = 0;
-
-            if (levelBonuses.TryGetValue(level, out string bonus))
+            if (level <= feathersRequired.Length)
             {
-                LevelUp(bonus);
+                feathersToUp = feathersRequired[level - 1];
+
+                experience = 0;
+                DataHolder.stats[2] = 0;
+
+                if (levelBonuses.TryGetValue(level, out string bonus))
+                {
+                    LevelUp(bonus);
+                }
             }
         }
     }
