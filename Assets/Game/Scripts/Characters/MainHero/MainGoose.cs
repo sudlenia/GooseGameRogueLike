@@ -186,10 +186,10 @@ public class MainGoose : Entity
 
         if (experience == feathersToUp && level != 10)
         {
-            feathersToUp = feathersRequired[level];
-
             level++;
             DataHolder.stats[1]++;
+
+            feathersToUp = feathersRequired[level - 1];
 
             experience = 0;
             DataHolder.stats[2] = 0;
