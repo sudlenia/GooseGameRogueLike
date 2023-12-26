@@ -80,7 +80,14 @@ public class MainGoose : Entity
     }
     private void Start()
     {
-        feathersToUp = feathersRequired[level - 1];
+        if (level >= 1 && level <= feathersRequired.Length)
+        {
+            feathersToUp = feathersRequired[level - 1];
+        }
+        else
+        {
+            feathersToUp = 1;
+        }
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
